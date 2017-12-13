@@ -59,10 +59,12 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="5db46dc4bfd7e272b37bdd4fabe3c397"></meta-data>
+            android:value="5db46dc4bfd7e272b37bdd4fabe3c397" />
 
-        <activity android:name=".VdActivity"
-            android:theme="@style/TranslucentTheme"></activity>
+        <activity
+            android:name=".VdActivity"
+            android:theme="@style/TranslucentTheme" />
+        <activity android:name=".SzActivity"></activity>
     </application>
 
 </manifest>

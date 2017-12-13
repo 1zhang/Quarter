@@ -46,7 +46,6 @@ public class MyInterceptor implements Interceptor {
         SharedPreferences mytoken=context.getSharedPreferences("Token",Context.MODE_PRIVATE);
         token=mytoken.getString("token","");
 
-
         //判断当前的请求
         if (request.method().equals("POST"))
         {
@@ -71,15 +70,17 @@ public class MyInterceptor implements Interceptor {
                 //获取新的request   取代原先的request
                 request=request.newBuilder().post(body).build();
             }
+            //进行返回
+
+       }else if(request.method().equals("GET")){
+            request = request.newBuilder().url(request.url()+"&source=android&appVersion="+String.valueOf(versionCode)).build();
+
         }
-        //进行返回
+
+
         Response proceed = chain.proceed(request);
-        Response response1 = proceed.newBuilder()
-                .removeHeader("Pragma")
-                .removeHeader("Cache-Control")
-                //cache for 30 days
-                .header("Cache-Control", "max-age=" + 3600 * 24 * 30)
-                .build();
-        return response1;
+
+
+        return proceed;
     }
 }

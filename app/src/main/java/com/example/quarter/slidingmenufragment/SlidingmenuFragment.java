@@ -8,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.quarter.Login;
 import com.example.quarter.R;
+import com.example.quarter.SzActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
@@ -19,17 +21,26 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 public class SlidingmenuFragment extends Fragment {
     private SimpleDraweeView my2_iv;
+    private ImageView iv;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.slidingmenu_left_item,container,false);
         my2_iv=view.findViewById(R.id.my1_iv);
         Uri uri =  Uri.parse("res://"+getActivity().getPackageName()+"/"+R.drawable.tou);
+        iv = view.findViewById(R.id.sz_iv);
         my2_iv.setImageURI(uri);
         my2_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(),Login.class);
+                startActivity(in);
+            }
+        });
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(),SzActivity.class);
                 startActivity(in);
             }
         });

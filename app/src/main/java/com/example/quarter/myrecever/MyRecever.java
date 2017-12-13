@@ -1,5 +1,6 @@
 package com.example.quarter.myrecever;
 
+import com.example.quarter.bean.BBbean;
 import com.example.quarter.bean.CrossBean;
 import com.example.quarter.bean.HotVideo;
 import com.example.quarter.bean.Loginbean;
@@ -16,6 +17,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -53,9 +55,11 @@ public interface MyRecever {
      * @param page
      * @return
      */
-    @POST("quarter/getJokes")
-    @FormUrlEncoded
-    Call<BaseBean<List<CrossBean>>> corssContent(@Field("page") String page);
+
+    @GET("quarter/getJokes")
+    @Headers("cache:20")
+    //@FormUrlEncoded
+    Call<BaseBean<List<CrossBean>>> corssContent(@Query("page") String page);
 
     /**
      * 关注
@@ -109,5 +113,6 @@ public interface MyRecever {
     @POST("quarter/getHotVideos")
     @FormUrlEncoded
     Call<BaseBean<List<HotVideo>>> hotvideo(@Field("page")String page,@Field("token")String token);
-
+@POST("quarter/getVersion")
+    Call<BaseBean<BBbean>> bb();
 }

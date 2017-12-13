@@ -7,8 +7,8 @@ android {
         applicationId "com.example.quarter"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,7 +32,7 @@ dependencies {
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.0'
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
-    
+
 
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -49,4 +49,6 @@ dependencies {
     compile 'com.dou361.ijkplayer-x86:jjdxm-ijkplayer-x86:1.0.0'
     compile 'com.dou361.ijkplayer-x86_64:jjdxm-ijkplayer-x86_64:1.0.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.LuoGuoXin:BaseAndroid:1.0.5'
+    compile 'org.xutils:xutils:3.3.40'
 }
